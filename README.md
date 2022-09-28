@@ -6,8 +6,8 @@ at a later date I will probably turn this into a more generalized tool that can 
 
 run 
 
-'''
+```
 pip install lxml igraph plotly anytree
-'''
+```
 
 to cover dependancies 
