@@ -161,7 +161,6 @@ full_solution_root= node
 labels = [state.node_index]
 v_text = [state.display()]
 edges = []
-vertices = []
 
 while state:    
     if len(state.children) != 0:
