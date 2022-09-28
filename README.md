@@ -13,7 +13,7 @@ pip install lxml igraph plotly anytree
 
 tested on Microsoft Windows 10 Pro Version 10.0.19044 Build 19044 and python 3.10.4
 
-resources used:
+**resources used:**
 
   - https://www.researchgate.net/publication/320386988_Tutorial_Igraph_with_Python
 
