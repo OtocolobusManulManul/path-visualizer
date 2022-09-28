@@ -4,10 +4,11 @@ two short python scripts that generate interactive graphs that can be used to he
 
 at a later date I will probably turn this into a more generalized tool that can be used to visualize the statespaces and traversal path of any algorithm and perhaps program memory. I should also probably redo astar_visualizer at some point, given that I can make the code much better now that I am familiar with the libraries.
 
-run 
+
+to cover dependancies  run 
 
 ```
 pip install lxml igraph plotly anytree
 ```
 
-to cover dependancies 
+
