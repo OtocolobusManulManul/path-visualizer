@@ -44,6 +44,7 @@ def hash_statespace (state):
     #print(state_hash)
     return state_hash
 
+
 class statespace: 
     
     def display(self, short = False): 
@@ -67,8 +68,6 @@ class statespace:
     def append_children (self, state): self.children += [state]
 
     
-
-
 def trip (state, dogs, cats):
 
     right = state.right
@@ -93,6 +92,7 @@ State = root_state
 hashes = [hash_statespace(State)]
 eval_path = []
 root_state.node_index = 0
+
 
 while sum(State.right) != 6:
 
