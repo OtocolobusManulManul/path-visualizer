@@ -15,11 +15,11 @@ tested on Microsoft Windows 10 Pro Version 10.0.19044 Build 19044 and python 3.1
 
 resources used:
 
-https://www.researchgate.net/publication/320386988_Tutorial_Igraph_with_Python
+  - https://www.researchgate.net/publication/320386988_Tutorial_Igraph_with_Python
 
-https://pypi.org/project/anytree/
+  - https://pypi.org/project/anytree/
 
-https://plotly.com/python/tree-plots/
+  - https://plotly.com/python/tree-plots/
 
 
 
