@@ -12,9 +12,11 @@ at a later date I will probably turn this into a more generalized tool that can 
 pip install lxml igraph plotly anytree
 ```
 
+
 **tested on:**
   
   - Microsoft Windows 10 Pro Version 10.0.19044 Build 19044 and python 3.10.4
+
 
 
 **resources used:**
