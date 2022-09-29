@@ -12,6 +12,7 @@ since I think this actually has some potential to be interesting I think I might
     - ideally a user would be able to implement the funcionality on preexisting code by providing a function reference, and specifying which objects need to be turned into nodes.
   - implement more options for graph display and perhaps a localized viewer using chromium libraries or something (no more webserver) 
   - create ctypes compatiable anytree node objects so it can visualize the execution state of an algorithm in C++ by passing constructor addresses to and a function pointer. 
+  - make the graphs it generates look less bad
 
 ## to cover dependancies  run 
 
