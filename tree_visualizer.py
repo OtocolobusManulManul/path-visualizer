@@ -91,22 +91,17 @@ while node.name != n and node and lvl >= 0:
         lvl -= 1
     
     else:
-        
         next_node = brother(node)
-
         if brother and (next_node != node):
-
             node = brother(node)       
-        
+       
         else:
-
             uncle = uncle (node)
             while (uncle == None):
-                
+        
                 node = node.parent
                 lvl += 1
                 parent = node.parent
-                
                 if (parent == None): node = None
                 else: uncle = uncle (node)
             
