@@ -82,11 +82,11 @@ lvl = 3
 
 def brother(node): return node.parent.right
 
-def uncle(node): return brother(node.parent)
+def get_uncle(node): return brother(node.parent)
 
-while node.name != n and node and lvl >= 0:  
+while node.name != n and node:  
     
-    if node.left: 
+    if node.left lvl > 0: 
         node = node.left
         lvl -= 1
     
@@ -96,14 +96,14 @@ while node.name != n and node and lvl >= 0:
             node = brother(node)       
        
         else:
-            uncle = uncle (node)
+            uncle = get_uncle (node)
             while (uncle == None):
         
                 node = node.parent
                 lvl += 1
                 parent = node.parent
                 if (parent == None): node = None
-                else: uncle = uncle (node)
+                else: uncle = get_uncle (node)
             
             lvl += 1
             node = uncle
