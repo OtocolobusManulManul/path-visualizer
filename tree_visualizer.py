@@ -86,7 +86,7 @@ def get_uncle(node): return brother(node.parent)
 
 while node.name != n and node:  
     
-    if node.left lvl > 0: 
+    if node.left and lvl > 0: 
         node = node.left
         lvl -= 1
     
