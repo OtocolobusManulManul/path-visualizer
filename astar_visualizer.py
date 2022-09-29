@@ -1,18 +1,16 @@
 from igraph import Graph, EdgeSeq
 import plotly.graph_objects as go
 from anytree import Node, RenderTree #to generate ASCII trees for testing purposes
+import pandas as pd
 
+#the other file is written much better
+#this one was my first attempt
 
 #used with the help of:
 #https://www.researchgate.net/publication/320386988_Tutorial_Igraph_with_Python
 #https://pypi.org/project/anytree/
 #https://plotly.com/python/tree-plots/
 
-#we just need to check to make sure that the state doesn't already exist
-#if it does it will never need to be moved around in the graph,
-#since A* will have generated the statespace from a previous
-#state with a lower hueristic, thus hashes just needs to check
-#if the state already exists
 
 def is_valid (state, hashes, current_node_index): #index 0 = cats, index 1 = cats
     
@@ -90,9 +88,17 @@ priority_queue = []
 root_state = statespace ([3,3], [0,0], False, 0)
 State = root_state
 hashes = [hash_statespace(State)]
+
+#we just need to check to make sure that the state doesn't already exist
+#if it does it will never need to be moved around in the graph,
+#since A* will have generated the statespace from a previous
+#state with a lower hueristic, thus hashes just needs to check
+#if the state already exists
+
 eval_path = []
 root_state.node_index = 0
 
+df = {"current node":[], "queue":[]}
 
 while sum(State.right) != 6:
 
@@ -111,8 +117,13 @@ while sum(State.right) != 6:
     priority_queue = sorted (priority_queue, key = lambda astar: astar.astar, reverse=True)
     print ("queue:", ", ".join(["node: " + str(x.node_index) + " A*: " + str(x.astar) for x in priority_queue][::-1]))
     
+    df['queue'] += [[node.node_index for node in priority_queue[::-1]]]
+    df['current node'] += [State.node_index]
+
     State = priority_queue.pop()
 
+df = pd.DataFrame(df)
+print(df)
 
 eval_path += [State]
 print ("reached goal space on node", State.node_index, "with", State.cost, "trips")
@@ -283,6 +294,13 @@ fig.update_layout(title= 'A* missionaries and cannibal (Reingold-Tilford Layout)
               plot_bgcolor='rgb(248,248,248)'
               )
 
-fig.write_html("../Downloads/miniweb-win32-20130309/miniweb/htdocs/astar.html")
+file_path = "../Downloads/miniweb-win32-20130309/miniweb/htdocs/" #you'll probably want to change this if you are running it on your own
+
+fig.write_html(file_path + "tree.html")
 
 
+dataset = "<html><body>" + df.to_html() + "</body></html>"
+
+f = open(file_path + "table.html", "w")
+f.write(dataset)
+f.close()
