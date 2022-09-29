@@ -1,13 +1,10 @@
 from igraph import Graph, EdgeSeq
 import plotly.graph_objects as go
 from anytree import RenderTree, NodeMixin #to generate ASCII trees for testing purposes
+import pandas as pd
 
-#used with the help of:
-#https://www.researchgate.net/publication/320386988_Tutorial_Igraph_with_Python
-#https://pypi.org/project/anytree/
-#https://plotly.com/python/tree-plots/
 
-file_path = "../Downloads/miniweb-win32-20130309/miniweb/htdocs/tree.html" #you'll probably want to change this if you are running it on your own
+file_path = "../Downloads/miniweb-win32-20130309/miniweb/htdocs/" #you'll probably want to change this if you are running it on your own
 
 def create_edge (state): return [[state.parent.name, state.name]]
 
@@ -99,7 +96,7 @@ while node.name != n and node and lvl >= 0:
 
         if brother and (next_node != node):
 
-            node = brother(node)
+            node = brother(node)       
         
         else:
 
@@ -209,6 +206,15 @@ fig.update_layout(title= 'binary tree search strategies (Reingold-Tilford Layout
               plot_bgcolor='rgb(248,248,248)'
               )
 
+df1 = pd.DataFrame({"breadth first order":bfs_order})
+df2 = pd.DataFrame({"depth limited search order":dls_order})
 
-fig.show() 
-fig.write_html("../Downloads/miniweb-win32-20130309/miniweb/htdocs/tree.html")
+#fig.show()  
+fig.write_html(file_path + "tree.html")
+
+
+dataset = "<html><body>" + df1.to_html() + "<br></br>" + df2.to_html() + "</body></html>"
+
+f = open(file_path + "treetable.html", "w")
+f.write(dataset)
+f.close()
